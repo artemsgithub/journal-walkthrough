@@ -9,14 +9,30 @@ let user = require('./controllers/usercontroller')
 // let about = require('./controllers/aboutcontroller')
 sequelize.sync(); 
 
+app.use(require('./middleware/headers'));
+
+// All OPTIONS requests return a simple status: 'OK'
+app.options('*', (req, res) => {
+    res.json({
+      status: 'OK'
+    });
+  });
+
+
+
 app.use(express.json()) // turn the json into a regular javascript object 
 
 // exposed route 
 app.use('/user', user)
 
+
+
+
 // protected route
 app.use(require('./middleware/validate-session')); // validate session (gatekeeper)
 app.use('/journal', journal)
+
+
 
 
 

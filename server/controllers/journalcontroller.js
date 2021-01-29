@@ -1,7 +1,7 @@
 let express = require('express');
 let router = express.Router();
 const validateSession = require('../middleware/validate-session');
-const journal = require('../models/journal');
+
 const Journal = require('../db').import('../models/journal')
 
 router.get('/practice', function(req, res){
