@@ -17,17 +17,20 @@ OKAY! Cool, let me check out "4" (number of lines edited response?) and see if t
 
 Nothing...let me double check my ```headers.js``` file and make sure it's all good there. 
 
-```module.exports = function (req, res, next) {
+
+``module.exports = function (req, res, next) {``
 
     res.header('access-control-allow-origin', '*');
     res.header('access-control-allow-methods', 'GET, POST, PUT, DELETE, OPTIONS')
     res.header('access-control-allow-headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization')
 
     next();
-};```
+``};``
 
 Should be good...but it doesn't seem to work. 
 
 Best guess on what the issue is where response isn't accessible...the thing is I can't think where else to position the code. Making it asscessible usually breaks the app, and the code is EXACTLY the same as in the module. I've re-written it multiple times. 
 
 ![image](https://user-images.githubusercontent.com/26638338/106307479-6a376e00-622d-11eb-81e2-22538c864a62.png)
+
+
